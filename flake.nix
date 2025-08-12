@@ -7,6 +7,10 @@
     { self, nixpkgs }:
     let
       metalsVersions = {
+        metals162 = {
+          version = "1.6.2";
+          hash = "sha256-WcPgX0GZSqpVVAzQ1zCxuRCkwcuR/8bwGjSCpHneeio=";
+        };
         metals161 = {
           version = "1.6.1";
           hash = "sha256-OsA+AWNYBmQ9wfUq1O4WKTf4ANCvBErKLUXH6NRfMss=";
