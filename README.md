@@ -24,7 +24,7 @@ nix run github:what-the-functor/nix-metals#metals160
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nix-metals.url = "github:what-the-functor/nix-metals";
   };
-  
+
   outputs = { nixpkgs, nix-metals, ... }:
     let
       pkgs = import nixpkgs {
@@ -44,7 +44,8 @@ nix run github:what-the-functor/nix-metals#metals160
 
 ## Available packages
 
-- `metals161` - Metals 1.6.1 (default)
+- `metals162` - Metals 1.6.2 (default)
+- `metals161` - Metals 1.6.1
 - `metals160` - Metals 1.6.0
 
 ## Development

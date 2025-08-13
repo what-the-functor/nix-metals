@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.2] - 2025-08-13
+
+### Added
+- Support for Metals 1.6.2 (new default)
+
+### Changed
+- CI now tests metals162 and metals161 (latest + previous)
+
 ## [1.6.1] - 2025-08-03
 
 ### Added
