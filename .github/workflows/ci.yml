@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest]
-        version: [metals162, metals161]
+        version: [metals163, metals162, metals161]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
