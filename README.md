@@ -44,7 +44,8 @@ nix run github:what-the-functor/nix-metals#metals160
 
 ## Available packages
 
-- `metals164` - Metals 1.6.4 (default)
+- `metals165` - Metals 1.6.5 (default)
+- `metals164` - Metals 1.6.4
 - `metals163` - Metals 1.6.3
 - `metals162` - Metals 1.6.2
 - `metals161` - Metals 1.6.1
