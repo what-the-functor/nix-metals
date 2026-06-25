@@ -10,7 +10,7 @@ This flake tracks the latest Metals releases, providing more current updates tha
 
 ### Run directly
 ```bash
-# Latest version (1.6.5)
+# Latest version (1.6.6)
 nix run github:what-the-functor/nix-metals
 
 # Specific version
@@ -34,7 +34,7 @@ nix run github:what-the-functor/nix-metals#metals160
     in {
       devShells.aarch64-darwin.default = pkgs.mkShell {
         packages = [
-          pkgs.metals      # Latest (1.6.5)
+          pkgs.metals      # Latest (1.6.6)
           # pkgs.metals160  # Specific version
         ];
       };
@@ -44,7 +44,8 @@ nix run github:what-the-functor/nix-metals#metals160
 
 ## Available packages
 
-- `metals165` - Metals 1.6.5 (default)
+- `metals165` - Metals 1.6.6 (default)
+- `metals165` - Metals 1.6.5
 - `metals164` - Metals 1.6.4
 - `metals163` - Metals 1.6.3
 - `metals162` - Metals 1.6.2
