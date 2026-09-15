@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.6] - 2026-04-17
+
+### Added
+- Support for Metals 1.6.6 (new default)
+
 ## [1.6.5] - 2026-02-10
 
 ### Added

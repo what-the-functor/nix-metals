@@ -7,6 +7,26 @@
     { self, nixpkgs }:
     let
       metalsVersions = {
+        metals169 = {
+          version = "1.6.9";
+          hash = "sha256-0P9UG3STfdAkST1UrlUUtvqOGnVfea/w17mMuweY3Ag=";
+        };
+
+        metals168 = {
+          version = "1.6.8";
+          hash = "sha256-FUJnkYZ4nsJvbR3N13jA82Oi10fZ6B/KMpXN7ds+RI8=";
+        };
+
+        metals167 = {
+          version = "1.6.7";
+          hash = "sha256-bGx3PQGgaTueQ/v/Xk7gp03TzllyMs7nCx9QWXNFdt0=";
+        };
+
+        metals166 = {
+          version = "1.6.6";
+          hash = "sha256-Snx4JvWOTkJcihVRwj25op4BJqmChz+1fZH/PrCCbt0=";
+        };
+
         metals165 = {
           version = "1.6.5";
           hash = "sha256-NOS1HUS4TJXnleZTEji3HAHUa9WOGmJDX2yT7zwmX08=";
