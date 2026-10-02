@@ -84,11 +84,12 @@
           jre,
           makeWrapper,
           setJavaClassPath,
+          version,
+          hash,
         }:
-        version: hash:
         stdenv.mkDerivation (finalAttrs: {
           pname = "metals";
-          version = version;
+          inherit version jre;
 
           deps = stdenv.mkDerivation {
             name = "metals-deps-${version}";
@@ -118,7 +119,7 @@
           installPhase = ''
             mkdir -p $out/bin
 
-            makeWrapper ${jre}/bin/java $out/bin/metals \
+            makeWrapper ${finalAttrs.jre}/bin/java $out/bin/metals \
             --add-flags "${finalAttrs.extraJavaOpts} -cp $CLASSPATH scala.meta.metals.Main"
           '';
 
@@ -136,20 +137,11 @@
     rec {
       packages = forAllSystems (
         { pkgs }:
-        with pkgs.lib;
-        let
-          metalsVersion = mkMetals {
-            inherit (pkgs)
-              stdenv
-              lib
-              coursier
-              jre
-              makeWrapper
-              setJavaClassPath
-              ;
-          };
-        in
-        withDefault (mapAttrs (name: info: metalsVersion info.version info.hash) metalsVersions)
+        withDefault (
+          pkgs.lib.mapAttrs (
+            name: info: pkgs.callPackage mkMetals { inherit (info) version hash; }
+          ) metalsVersions
+        )
       );
 
       apps = forAllSystems (
@@ -176,11 +168,19 @@
 
       formatter = forAllSystems ({ pkgs }: pkgs.nixfmt-rfc-style);
 
+      lib = {
+        inherit mkMetals metalsVersions;
+      };
+
       overlays.default =
         final: prev:
-        builtins.mapAttrs (name: _: self.packages.${prev.system}.${name}) metalsVersions
+        builtins.mapAttrs (
+          name: info: final.callPackage mkMetals { inherit (info) version hash; }
+        ) metalsVersions
         // {
-          metals = self.packages.${prev.system}.default;
+          metals = final.callPackage mkMetals {
+            inherit (metalsVersions.${defaultVersion}) version hash;
+          };
         };
     };
 }
